@@ -11,13 +11,12 @@
                     v-model="passwrd"
                     label="Password"
                     type="password"/> 
-                <BaseButton type="primary" text="submit" @click="onAuthLogin" />
+                <BaseButton type="danger" text="submit" @click="onAuthLogin" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { useAuthStore } from '~/store/auth'
 
 const router = useRouter()
@@ -34,7 +33,7 @@ const onAuthLogin = async () => {
     }
     try {
         await authenticateUser(body);
-        router.replace('/dashboard')
+        router.replace('/')
     } catch (error) {
         console.error(error)
     }

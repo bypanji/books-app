@@ -1,5 +1,4 @@
-import axios, {type AxiosResponse} from 'axios'
-
+import axios, { type AxiosResponse } from 'axios'
 export interface IFormLogin {
     email : string,
     password : string
@@ -13,6 +12,9 @@ export async function authLogin(body : IFormLogin): Promise<AxiosResponse<IResLo
     return axios.post(`api/auth/login`, body)
 }
 
-export async function getRole(): Promise<AxiosResponse> {
-    return axios.get(`api/users/me`)
+export async function getRole(token : string): Promise<AxiosResponse> {
+    const headers = {
+        Authorization: `Bearer ${token}`,
+    }
+    return axios.get(`api/users/me`, { headers:  headers })
 }
