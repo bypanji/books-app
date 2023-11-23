@@ -28,7 +28,7 @@ const classNames = computed(() => {
        result.push(`button--${props.type}`)
 
     if(props.size)
-        result.push(`buton-${props.size}`)
+        result.push(`buton-size__${props.size}`)
 
     return result
 })
@@ -50,6 +50,15 @@ const classNames = computed(() => {
     }
     &--success {
         @apply bg-green-500 hover:bg-green-700 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)];
+    }
+    &--secondary {
+        @apply bg-gray-500 hover:bg-gray-700 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)];
+    }
+
+    &--size {
+        &__sm {
+            @apply py-2 px-2;
+        }
     }
   }
 

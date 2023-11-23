@@ -6,12 +6,10 @@ export const sessionStore = defineStore('sessionStore', {
   }),
   actions: {
     async getUserProfile() {
-      const {
-        data: { data },
-      } = await getRole()
-      this.$patch({
-        identity: data,
-      })
+      const token = useCookie('token')
+      if(!token.value) return
+      const { data } = await getRole(token.value)
+      this.identity = data
     },
 
     setIdentity(e?: any) {

@@ -1,6 +1,6 @@
 import {sessionStore} from '@/store/session'
 //get role in server side
-export default defineNuxtPlugin(async (event) => {
+export default defineNuxtPlugin(async () => {
   const token = useCookie('token')
   const { setIdentity} = sessionStore()
   const router = useRouter()
